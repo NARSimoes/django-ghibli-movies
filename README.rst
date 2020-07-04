@@ -29,7 +29,7 @@ Run using Docker
 
 **3. Open application and enjoy (or not :D)!**
 
-    http://127.0.0.1:8990
+    http://127.0.0.1:8000
 
 Run in development mode
 =======================

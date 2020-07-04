@@ -87,3 +87,21 @@ Prepared for Google Authentication:
 ===================================
 
 With the administration account add new site section and a social application (Fill those values with your OAuth details).
+
+Additional Information:
+=======================
+
+This project uses the celery in order to run one task (get_movies) every minute. The task will
+use the app services to obtain all movies from Ghibli API and save that data in redis. So,
+the cache data is used every time that the page is load.
+
+Since the people field on /films endpoint is broken, a list of people is called from /people
+endpoint and the relationship between movies and people is done. This operation is executed
+in services.py. Since the external API has a few data and the task is executed every minute,
+the operation is performed in 0.0001 seconds. However, if the API increases the movies sample
+size, a study must be realized to understand if we can keep this approach or if we have
+to pick a better one (optimization, memory, etc).
+
+Some unit tests were applied, however with more time a more complex strategy plan should
+be defined. For example, we could create a mock API (e.g. developed in flask) where we
+can realize some tests like improve the sample of movies, create some fake data, etc.

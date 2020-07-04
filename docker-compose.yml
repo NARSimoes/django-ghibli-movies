@@ -1,10 +1,46 @@
 
 version: "3"
 services:
+  database:
+    image: postgres
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_DB=movies
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    env_file:
+      - ghiblimovies.env
+  redis:
+    container_name: redis-ghiblimovies
+    image: redis:alpine
+  celery:
+    build: .
+    command: celery -A ghiblimovies worker -l info
+    env_file:
+      - ghiblimovies.env
+    depends_on:
+      - redis
+    volumes:
+      - .:/ghiblimovies/
+  celery-beat:
+    build: .
+    command: celery -A ghiblimovies beat -l info
+    env_file:
+      - ghiblimovies.env
+    depends_on:
+      - redis
+    volumes:
+      - .:/ghiblimovies/
   django:
     build: .
     ports:
-      - "8990:8990"
+      - "8000:8000"
+    depends_on:
+      - database
+      - redis
     env_file:
       - ghiblimovies.env
+    volumes:
+      - .:/ghiblimovies/
     entrypoint: /usr/src/ghiblimovies/entrypoint.sh

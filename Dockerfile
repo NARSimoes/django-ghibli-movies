@@ -2,11 +2,11 @@
 FROM python:3
 
 RUN mkdir -p /usr/src/ghiblimovies
-WORKDIR /usr/src/ghiblimovies/
 ADD . /usr/src/ghiblimovies
 # to delete after dev
 RUN mkdir -p /ghiblimovies
 ADD . /ghiblimovies
+WORKDIR /usr/src/ghiblimovies
 
 # set default environment variables
 ENV PYTHONUNBUFFERED 1

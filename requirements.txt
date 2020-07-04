@@ -8,3 +8,4 @@ celery==4.4.6
 django_celery_beat
 requests
 coverage
+sphinx

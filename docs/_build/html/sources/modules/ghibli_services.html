@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Services &#8212; Ghibli Movies 0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ghibli.services">
+<span id="ghibli-services"></span><h1>Ghibli Services<a class="headerlink" href="#module-ghibli.services" title="Permalink to this headline">¶</a></h1>
+<p>All services to communicate with external API:
+- get_movies()</p>
+<dl class="py function">
+<dt id="ghibli.services.check_this_movie_id">
+<code class="sig-prename descclassname">ghibli.services.</code><code class="sig-name descname">check_this_movie_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_movie</span></em>, <em class="sig-param"><span class="n">person</span></em>, <em class="sig-param"><span class="n">movies</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ghibli.services.check_this_movie_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking if we have this movie id in our movies. If yes,
+let’s append the person name into people!
+:param id_movie:
+:param person:
+:param movies:
+:return:</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ghibli.services.get_json_request">
+<code class="sig-prename descclassname">ghibli.services.</code><code class="sig-name descname">get_json_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ghibli.services.get_json_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auxiliary function to obtain the json from get request response.
+:param url:
+:return: json response</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ghibli.services.get_movies">
+<code class="sig-prename descclassname">ghibli.services.</code><code class="sig-name descname">get_movies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ghibli.services.get_movies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request movies and people from the ghibli api. Getting people
+from the people endpoint and joining that persons into movies
+if there are relationships between both.
+:return: {“movies”: movies_list}</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Ghibli Movies</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Nuno Simões.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/sources/modules/ghibli_services.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,53 @@
+
+version: "3"
+services:
+  database:
+    image: postgres
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_DB=movies
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    env_file:
+      - ghiblimovies.env
+  redis:
+    container_name: redis-ghiblimovies
+    image: redis:alpine
+  celery:
+    build: .
+    command: celery -A ghiblimovies worker -l info
+    env_file:
+      - ghiblimovies.env
+    depends_on:
+      - redis
+    volumes:
+      - .:/ghiblimovies/
+  celery-beat:
+    build: .
+    command: celery -A ghiblimovies beat -l info
+    env_file:
+      - ghiblimovies.env
+    depends_on:
+      - redis
+    volumes:
+      - .:/ghiblimovies/
+  django:
+    build: .
+    ports:
+      - "8990:8990"
+    depends_on:
+      - database
+      - redis
+    env_file:
+      - ghiblimovies.env
+    volumes:
+    - .:/ghiblimovies/
+    #entrypoint: /ghiblimovies/entrypoint-development.sh
+    command: >
+      bash -c "python manage.py makemigrations && python manage.py migrate
+      && python manage.py runserver 0.0.0.0:8990
+      && celery -A ghiblimovies worker -l INFO"
+    # entrypoint: python /ghiblimovies/manage.py makemigrations &&
+    #  python /ghiblimovies/manage.py migrate && python /ghiblimovies/manage.py runserver 0.0.0.0:8990
+    #  --scheduler django_celery_beat.schedulers:DatabaseScheduler"

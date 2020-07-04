@@ -1,0 +1,10 @@
+Django>=2.0,<3.0
+django-allauth==0.42.0
+psycopg2>=2.7,<3.0
+django-crispy-forms==1.9.1
+djangorestframework
+django-redis
+celery==4.4.6
+django_celery_beat
+requests
+coverage

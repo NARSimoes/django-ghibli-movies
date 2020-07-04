@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+  <div class="hero-unit">
+    <!--h2>Ghibli Movies</h2-->
+
+    <!-- List with ghibli movies -->
+    <ul class="list-unstyled">
+      {% for movie in movies %}
+        <li class="media">
+          <img class="mr-3" src="{% static '/img/logo_castle_cenas.png' %}" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1"><strong>{{ movie.title }}</strong></h5>
+            <b style="font-size: 15px;"><strong>Description: </strong>{{movie.description}}</b>
+            <b style="font-size: 15px;"><strong>Release Date: </strong>{{movie.release_date}}</b>
+            <b style="font-size: 15px;"><strong>Score: </strong>{{movie.rt_score}}</b>
+            <p style="font-size: 15px;"><b><strong>People: </strong></b>{% for people in movie.people%}
+              {{ people }},
+              {% endfor %}
+            </p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}

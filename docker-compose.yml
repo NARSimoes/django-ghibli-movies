@@ -1,0 +1,10 @@
+
+version: "3"
+services:
+  django:
+    build: .
+    ports:
+      - "8990:8990"
+    env_file:
+      - ghiblimovies.env
+    entrypoint: /usr/src/ghiblimovies/entrypoint.sh

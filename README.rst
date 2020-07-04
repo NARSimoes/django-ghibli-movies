@@ -71,7 +71,7 @@ Tests
 
 **Current Coverage:**
 
-.. image:: docs/source/images/coverage.png
+.. image:: docs/sources/images/coverage.png
 
 2. Run Tests (including tests using selenium/geckodriver/firefox) and check coverage
 

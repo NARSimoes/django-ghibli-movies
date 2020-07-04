@@ -44,19 +44,19 @@ Examples
 
 **1. First Page**
 
-.. image:: docs/source/images/first_page.png
+.. image:: docs/sources/images/first_page.png
 
 **2. Sign Up**
 
-.. image:: docs/source/images/sign_up.png
+.. image:: docs/sources/images/sign_up.png
 
 **3. Sign In**
 
-.. image:: docs/source/images/sign_in.png
+.. image:: docs/sources/images/sign_in.png
 
 **4. Ghibli Movies**
 
-.. image:: docs/source/images/movies.png
+.. image:: docs/sources/images/movies.png
 
 Tests
 =====

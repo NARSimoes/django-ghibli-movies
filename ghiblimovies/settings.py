@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'django_celery_beat',
-    'test_pep8',  # to remove after dev
+    # 'test_pep8',  # to remove after dev
 
     'core',
     'ghibli',
@@ -151,9 +151,8 @@ CACHE_TTL = os.getenv("CACHE_TTL")
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME':
-            'django.contrib.auth.password_validation.\
-             UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.' +
+        'UserAttributeSimilarityValidator',
     },
     {
         'NAME':

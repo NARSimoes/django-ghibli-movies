@@ -11,32 +11,35 @@ import requests
 logger = logging.getLogger(__name__)
 
 
-def get_movies():
+def get_movies(movies: [], people: []) -> {}:
     """
     Request movies and people from the ghibli api. Getting people
     from the people endpoint and joining that persons into movies
     if there are relationships between both.
+    :param movies: response from external api - movies
+    :param people: response from external api - people
     :return: {"movies": movies_list}
     """
     logger.info("Get Movies from API in services!")
 
-    # getting movies
-    movies = get_json_request('https://ghibliapi.herokuapp.com/films')
+    # empty movies?
     if not movies:
         return {}
 
-    people = get_json_request("https://ghibliapi.herokuapp.com/people")
-
     # clear people in list to ensure we clean all broken people data
-    [i["people"].clear() for i in movies]
+    [i["people"].clear() for i in movies if "people" in i]
 
     for person in people:
-        person_movies = person["films"]
-        for pmovie in person_movies:
-            id_movie = pmovie.split("/")[-1]
-            # checking if we have movies for this person, if we have
-            # append the name into people
-            check_this_movie_id(id_movie, person, movies)
+        if "films" in person:
+            person_movies = person["films"]
+            for pmovie in person_movies:
+                # split the url and get the id, maybe we could
+                # do some url validator using urlparse or other approach
+                # from django validators....
+                id_movie = pmovie.split("/")[-1]
+                # checking if we have movies for this person, if we have
+                # append the name into people
+                check_this_movie_id(id_movie, person, movies)
 
     movies_list = {'movies': movies}
     logger.info("Movies list in services:", movies_list)

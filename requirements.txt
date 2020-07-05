@@ -9,3 +9,4 @@ django_celery_beat
 requests
 coverage
 sphinx
+flake8

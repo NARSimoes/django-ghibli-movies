@@ -235,7 +235,6 @@ LOGGING = {
     "loggers": {
         "django": {
             "handlers": ["file", "console"],
-            "level": "ERROR",
             'propagate': True,
             'level': os.getenv('DJANGO_LOGLEVEL', 'DEBUG')
         },

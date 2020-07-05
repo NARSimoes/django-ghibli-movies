@@ -1,0 +1,19 @@
+
+__pycache__/
+
+*.log
+celerybeat-schedule.*
+
+# Tests
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Sphinx
+docs/_build/
+
+.idea/

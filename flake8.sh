@@ -1,0 +1,1 @@
+flake8 --exclude=migrations,docs,frontend,scripts

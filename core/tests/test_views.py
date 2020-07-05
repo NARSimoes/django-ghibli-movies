@@ -79,5 +79,5 @@ try:
 except Exception as e:
     logger.debug(
         "Firefox isn't installed.\
-         Do you want execute just non graphical tests?"
+         Do you want execute just non graphical tests?", e
     )

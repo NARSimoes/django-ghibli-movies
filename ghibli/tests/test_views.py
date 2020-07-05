@@ -62,4 +62,7 @@ class GhibliViewsTest(TestCase):
         resp = self.client.get(reverse("ghibli_movies_view"))
         self.client.get(settings.KEY_CACHE_GHIBLI)
         self.assertEqual(resp.status_code, 200)
-        self.assertEqual(resp.context["movies"], mocked_ghibli_movies["movies"])
+        self.assertEqual(
+            resp.context["movies"],
+            mocked_ghibli_movies["movies"]
+        )

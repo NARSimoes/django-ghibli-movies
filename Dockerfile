@@ -36,7 +36,6 @@ RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade --no-cache-dir --src /usr/src -r requirements.txt
 
 RUN chmod a+x /usr/src/ghiblimovies/entrypoint.sh
-RUN chmod a+x /ghiblimovies/entrypoint-development.sh
 
 #WORKDIR /usr/src/ghiblimovies/
 WORKDIR /ghiblimovies
